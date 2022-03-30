@@ -18,6 +18,7 @@ jobs:
       GITHUB_USER: ${{ github.actor }}
 #      GITHUB_TOKEN: ${{ secrets.TOKEN2 }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
     steps:
       - uses: actions/checkout@v2
         with:
