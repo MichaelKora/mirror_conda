@@ -36,5 +36,7 @@ jobs:
         shell: bash -l {0}
 
       - name:  verify checksums
-        run: conda-oci check
+        run: |
+          ls -al /home/runner/work/mirror_conda/
+          conda-oci check
         shell: bash -l {0}
