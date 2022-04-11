@@ -33,10 +33,6 @@ jobs:
           python -m pip install git+https://github.com/MichaelKora/conda_oci_mirror@all_packages
           echo ${{ env.GITHUB_TOKEN }} | oras login https://ghcr.io -u ${{ env.GITHUB_USER }} --password-stdin
           conda-oci mirror --channel conda-forge -s ${{ matrix.subdir }} --packages zlib, --packages xtensor-blas --user ${{ env.GITHUB_USER }}
-        shell: bash -l {0}
-
-      - name:  verify checksums
-        run: |
-          ls -al /home/runner/work/mirror_conda/mirror_conda/cache/conda-forge/
+          ls -al /home/runner/work/mirror_conda/mirror_conda/cache/conda-forge/${{ matrix.subdir }}
           conda-oci check -s ${{ matrix.subdir }}
         shell: bash -l {0}
