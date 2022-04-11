@@ -37,6 +37,6 @@ jobs:
 
       - name:  verify checksums
         run: |
-          ls -al /home/runner/work/mirror_conda/mirror_conda/cache/
+          ls -al /home/runner/work/mirror_conda/mirror_conda/cache/conda-forge/
           conda-oci check
         shell: bash -l {0}
