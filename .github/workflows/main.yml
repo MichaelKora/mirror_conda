@@ -34,5 +34,5 @@ jobs:
           python -m pip install git+https://github.com/MichaelKora/conda_oci_mirror@all_packages
           echo ${{ env.GITHUB_TOKEN }} | oras login https://ghcr.io -u ${{ env.GITHUB_USER }} --password-stdin
           conda-oci mirror --channel conda-forge -s ${{ matrix.subdir }} --packages zlib --user ${{ env.GITHUB_USER }}
+          #conda-oci check
         shell: bash -l {0}
-      - run: echo "🍏 The current status is ${{ job.status }}."
