@@ -38,5 +38,5 @@ jobs:
       - name:  verify checksums
         run: |
           ls -al /home/runner/work/mirror_conda/mirror_conda/cache/conda-forge/
-          conda-oci check
+          conda-oci check -s ${{ matrix.subdir }}
         shell: bash -l {0}
