@@ -30,13 +30,13 @@ jobs:
 
       - name:  clone project and mirror
         run: |
-          python -m pip install git+https://github.com/MichaelKora/conda_oci_mirror@upload_index
+          python -m pip install git+https://github.com/MichaelKora/conda_oci_mirror@compare_checksum
           echo ${{ env.GITHUB_TOKEN }} | oras login https://ghcr.io -u ${{ env.GITHUB_USER }} --password-stdin
           conda-oci mirror --channel conda-forge -s ${{ matrix.subdir }} --packages zlib, --packages xtensor-blas --user ${{ env.GITHUB_USER }}
         shell: bash -l {0}
 
       - name: compare checksums
         run: |
-          # conda-oci check -s ${{ matrix.subdir }}
-          ls -al
+          conda-oci check -s ${{ matrix.subdir }}
+          # ls -al
         shell: bash -l {0}
